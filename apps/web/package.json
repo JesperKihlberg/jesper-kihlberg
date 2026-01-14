@@ -1,58 +1,30 @@
 {
   "name": "web",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "extract": "lingui extract",
-    "compile": "lingui compile --typescript"
-  },
-  "peerDependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "lint": "eslint . --ext ts,tsx",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@lingui/core": "^5.6.0",
-    "@lingui/react": "^5.6.0",
-    "@phosphor-icons/react": "^2.1.10",
-    "@repo/api-client": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/hooks": "workspace:*",
-    "@repo/types": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@repo/ui": "workspace:*",
-    "@repo/utils": "workspace:*",
-    "@tailwindcss/vite": "^4.1.17",
-    "@tanstack/react-form": "^1.26.0",
-    "@tanstack/react-query": "^5.90.10",
-    "@tanstack/react-router": "^1.139.1",
-    "@uidotdev/usehooks": "^2.4.1",
-    "tailwind-merge": "^3.4.0",
-    "tailwind-variants": "^3.2.2",
-    "tailwindcss": "^4.1.17",
-    "zod": "^4.1.12"
+    "@jesper/ui": "workspace:*",
+    "@jesper/utils": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@lingui/babel-plugin-lingui-macro": "^5.6.0",
-    "@lingui/cli": "^5.6.0",
-    "@lingui/vite-plugin": "^5.6.0",
-    "@tanstack/router-plugin": "^1.139.1",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
   }
 }

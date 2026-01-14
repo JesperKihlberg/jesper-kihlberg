@@ -1,112 +1,180 @@
-# Monorepo UI Starter
+# Jesper Kihlberg Monorepo
 
-A modern monorepo starter built with Turborepo, React, Vite, Storybook, and Tailwind CSS.
+Modern monorepo setup with Turborepo, Vite, React 19, TypeScript, and Tailwind CSS v4.
 
-## What's inside?
+## Structure
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `web`: a [React](https://react.dev/) + [Vite](https://vitejs.dev/) app with Tailwind CSS
-- `storybook`: a [Storybook](https://storybook.js.org/) app for component development and documentation
-- `@repo/ui`: a shared React component library with [Mantine](https://mantine.dev/) and Tailwind CSS (used by both `web` and `storybook`)
-- `@repo/eslint-config`: shared `eslint` configurations
-- `@repo/typescript-config`: shared `tsconfig.json` files used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-- [Vite](https://vitejs.dev/) for fast builds and development
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- [Mantine](https://mantine.dev/) UI component library
-- [Storybook](https://storybook.js.org/) for component development
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```sh
-cd monorepo-ui-starter
-pnpm run build
+```
+jesper-kihlberg/
+├── apps/
+│   └── web/                 # Main React application
+├── packages/
+│   ├── ui/                  # Shared React components
+│   ├── utils/               # Shared utilities
+│   └── config-typescript/   # Shared TypeScript configs
+├── package.json
+├── pnpm-workspace.yaml
+└── turbo.json
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## Getting Started
 
-```sh
-pnpm run build --filter=web
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm 9+ (install with `npm install -g pnpm`)
+
+### Installation
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development servers for all apps
+pnpm dev
+
+# Or run dev for specific app
+cd apps/web
+pnpm dev
 ```
 
-### Develop
+### Available Commands
 
-To develop all apps and packages, run the following command:
+```bash
+# Development
+pnpm dev          # Start all apps in dev mode
+pnpm build        # Build all apps and packages
+pnpm lint         # Lint all code
+pnpm type-check   # Type check all code
+pnpm clean        # Clean all build artifacts
 
-```sh
-cd monorepo-ui-starter
-pnpm run dev
+# Individual package commands
+cd apps/web
+pnpm dev          # Start web app only
+pnpm build        # Build web app only
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## Packages
 
-```sh
-# Develop the web app
-pnpm run dev --filter=web
+### @jesper/ui
 
-# Develop Storybook
-pnpm run dev --filter=storybook
+Shared React component library with Tailwind CSS styling.
+
+**Usage:**
+```tsx
+import { Button } from '@jesper/ui'
+
+<Button variant="primary" onClick={handleClick}>
+  Click me
+</Button>
 ```
 
-### Lint
+### @jesper/utils
 
-To lint all apps and packages:
+Shared utility functions.
 
-```sh
-pnpm run lint
+**Usage:**
+```tsx
+import { formatDate, cn, debounce } from '@jesper/utils'
+
+const formattedDate = formatDate(new Date())
+const className = cn('base', isActive && 'active')
 ```
 
-### Format
+## Adding New Packages
 
-To format all files:
+1. Create a new directory in `packages/`
+2. Add `package.json` with name `@jesper/package-name`
+3. Update `tsconfig.json` path mappings if needed
+4. Add to workspace dependencies with `workspace:*`
 
-```sh
-pnpm run format
+## Adding New Apps
+
+1. Create a new directory in `apps/`
+2. Set up Vite config with path aliases
+3. Add dependencies with `pnpm add @jesper/ui workspace:*`
+
+## Key Features
+
+- ⚡️ **Turborepo** - Fast task orchestration and caching
+- 📦 **pnpm** - Efficient package management
+- 🎨 **Tailwind v4** - Latest Tailwind with improved performance
+- ⚛️ **React 19** - Latest React features
+- 🔥 **Vite** - Lightning fast HMR
+- 📘 **TypeScript** - Full type safety across monorepo
+- 🔄 **Hot Module Replacement** - Changes in packages instantly reflect in apps
+
+## Path Mapping
+
+TypeScript path mapping is configured to allow direct imports from source:
+
+```tsx
+// Works in any app
+import { Button } from '@jesper/ui'
+import { formatDate } from '@jesper/utils'
 ```
 
-### Remote Caching
+Vite resolves these to the actual source files for instant HMR.
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+## TypeScript Configuration
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+The monorepo uses TypeScript project references for:
+- Faster incremental builds
+- Better IDE performance
+- Proper dependency tracking
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## Tailwind CSS v4
 
-```sh
-cd monorepo-ui-starter
-pnpm exec turbo login
+Using the latest Tailwind v4 with CSS-first configuration:
+
+```css
+/* apps/web/src/index.css */
+@import "tailwindcss";
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Configuration in `tailwind.config.ts` for customization.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## Development Workflow
 
-```sh
-pnpm exec turbo link
+1. Make changes in `packages/ui` or `packages/utils`
+2. See changes instantly in `apps/web` via HMR
+3. No build step needed during development
+4. Run `pnpm build` before deploying
+
+## Troubleshooting
+
+**Issue: Types not found**
+```bash
+# Rebuild TypeScript references
+pnpm type-check
 ```
 
-## Useful Links
+**Issue: Stale cache**
+```bash
+pnpm clean
+pnpm install
+```
 
-Learn more about the power of Turborepo:
+**Issue: Port already in use**
+```bash
+# Kill process on port 3000
+# Windows: netstat -ano | findstr :3000
+# Then: taskkill /PID <PID> /F
+```
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+## Next Steps
+
+- Add more shared components to `@jesper/ui`
+- Create additional apps in `apps/`
+- Add testing setup (Vitest recommended)
+- Configure ESLint/Prettier
+- Set up CI/CD pipeline
+- Add Storybook for component development
+
+## Resources
+
+- [Turborepo Documentation](https://turbo.build/repo/docs)
+- [Vite Documentation](https://vitejs.dev)
+- [React 19 Documentation](https://react.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [pnpm Documentation](https://pnpm.io)

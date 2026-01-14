@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Task</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec92",
+              "background-light": "#f6f8f7",
+              "background-dark": "#10221a",
+              "surface-dark": "#1c2e26", // Slightly lighter than background-dark for cards/inputs
+              "surface-light": "#ffffff",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Custom range input slider for iOS feel */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #13ec92;
+            cursor: pointer;
+            margin-top: -8px; 
+            box-shadow: 0 0 10px rgba(19, 236, 146, 0.5);
+        }
+        
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #2c4a3e;
+            border-radius: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased transition-colors duration-200 overflow-x-hidden">
+<div class="relative min-h-screen w-full flex flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Bottom Sheet Handle -->
+<div class="flex-none pt-3 pb-1 flex justify-center w-full z-10 bg-background-light dark:bg-background-dark">
+<div class="h-1.5 w-12 rounded-full bg-gray-300 dark:bg-[#2c4a3e]"></div>
+</div>
+<!-- Header -->
+<header class="flex-none flex items-center justify-between px-4 py-2 sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-200 dark:hover:bg-surface-dark text-gray-500 dark:text-gray-400 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 28px;">close</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">New Task</h1>
+<div class="w-10"></div> <!-- Spacer to center title perfectly -->
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-4 pt-2 pb-32 space-y-8 no-scrollbar">
+<!-- Task Name & Description -->
+<div class="space-y-4">
+<div class="relative group">
+<label class="block text-xs font-bold text-gray-500 dark:text-[#92c9b2] uppercase tracking-wider mb-2 ml-1">Task Details</label>
+<input class="w-full bg-surface-light dark:bg-surface-dark border-none rounded-2xl p-4 text-xl font-semibold placeholder:font-normal focus:ring-2 focus:ring-primary/50 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition-all text-gray-900 dark:text-white" placeholder="What needs to be done?" type="text"/>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-light dark:bg-surface-dark border-none rounded-2xl p-4 text-base focus:ring-2 focus:ring-primary/50 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm resize-none transition-all text-gray-900 dark:text-white" placeholder="Add a description..." rows="3"></textarea>
+<div class="absolute bottom-3 right-3 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined text-[20px]">notes</span>
+</div>
+</div>
+</div>
+<!-- Recurrence -->
+<div>
+<div class="flex items-center justify-between mb-3 ml-1">
+<h3 class="text-sm font-bold text-gray-500 dark:text-[#92c9b2] uppercase tracking-wider">Recurrence</h3>
+<span class="text-xs text-primary font-medium cursor-pointer hover:underline">Advanced</span>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 no-scrollbar scroll-snap-x snap-mandatory">
+<button class="snap-start flex-none px-5 py-2.5 rounded-full bg-primary text-black font-bold text-sm shadow-lg shadow-primary/20 ring-1 ring-primary transition-transform active:scale-95">Once</button>
+<button class="snap-start flex-none px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#25382f] ring-1 ring-gray-200 dark:ring-white/5 transition-all active:scale-95">Daily</button>
+<button class="snap-start flex-none px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#25382f] ring-1 ring-gray-200 dark:ring-white/5 transition-all active:scale-95">Weekly</button>
+<button class="snap-start flex-none px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#25382f] ring-1 ring-gray-200 dark:ring-white/5 transition-all active:scale-95">Monthly</button>
+<button class="snap-start flex-none px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-[#25382f] ring-1 ring-gray-200 dark:ring-white/5 transition-all active:scale-95 flex items-center gap-1">
+                        Custom
+                        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Time & Reminder -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm ring-1 ring-gray-200 dark:ring-white/5 overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-sm">Remind me</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">Get a push notification</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer dark:bg-black/40 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Date Time Picker Row -->
+<div class="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-[#25382f] transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">calendar_clock</span>
+</div>
+<span class="font-medium text-gray-600 dark:text-gray-300">Date &amp; Time</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="bg-gray-100 dark:bg-black/40 px-3 py-1.5 rounded-lg text-sm font-bold text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 group-hover:border-primary/50 transition-colors">
+                            Today, 9:00 AM
+                        </div>
+</div>
+</div>
+</div>
+<!-- Assignees -->
+<div>
+<h3 class="text-sm font-bold text-gray-500 dark:text-[#92c9b2] uppercase tracking-wider mb-3 ml-1">Who is doing this?</h3>
+<div class="flex items-center gap-3 overflow-x-auto pb-2 -mx-4 px-4 no-scrollbar">
+<!-- User 1 (Selected) -->
+<button class="group flex flex-col items-center gap-2 min-w-[64px]">
+<div class="relative w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-primary to-green-400 shadow-lg shadow-primary/20 transition-transform group-active:scale-95">
+<img class="w-full h-full rounded-full object-cover border-4 border-background-light dark:border-background-dark" data-alt="Portrait of Sarah smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvbTU7sgEnyo0yRbkbHnr1cjBMQaRwnPc4zEMTQEajfEB0-tMcGqiv_vPUwIFa9O2f0QuXE1s5cM44Z_RvMY106RVsCqTskJZS1yGykvnrhfGJKgJ-80A8bdpmfLPWOCTvbfTJzoOAa2fvcX3JmqUNKYk7I1CpmuXv7pjVfHeKf1Mjk2DJsSHjVF1NmJIVOwfAnCfMqsNH_noO8rW_GSX8rHQVeY2cXoOsdKgwvm7k7BqUGVb3k_CAu8RQRU_x_n5Dp-NuKxNrT6k"/>
+<div class="absolute bottom-0 right-0 w-5 h-5 bg-primary border-2 border-background-light dark:border-background-dark rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[12px] text-black font-extrabold">check</span>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">Sarah</span>
+</button>
+<!-- User 2 -->
+<button class="group flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition min-w-[64px]">
+<div class="relative w-16 h-16 rounded-full p-0.5 bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors">
+<img class="w-full h-full rounded-full object-cover border-4 border-transparent" data-alt="Portrait of Mike with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8GQB7GZPGdwkuLL1QwrnVwl04KX07fdNpuHSRfwLDHJ_yPAxslteV9VH3LLYdTby-jMl1Q76QLUQTksF6AoT9vLoLh9BDJekSFzHtx0rPW-61JeqUu9eyqoKw7NViKXOXBwcTkB5iJLUgWUakNPmq2_KpVvyEJSj4rT5FbdUB2b88IWgmE9sOpVV2ZO7Ce5aaYXGPQFbi0KdkHhH_brv6zt6Kyhi-yzSTdGpYNFMoxmBy6TKNSHD2yT1Xc6wpmGL2rRYUjK89byY"/>
+</div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Mike</span>
+</button>
+<!-- User 3 -->
+<button class="group flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition min-w-[64px]">
+<div class="relative w-16 h-16 rounded-full p-0.5 bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors">
+<img class="w-full h-full rounded-full object-cover border-4 border-transparent" data-alt="Portrait of Alex looking forward" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC18zsIx1Tn8mPSjSS4KxUe-j47Hf-ZaQIlff6_yK95_NVCJIEzEga0lhHC6M07KBjaOd8gDkMTrE9t1bsXuyl-mBghP0cNAa0Jt9nNiCnNcDVAIHBhM7neQEipdRvxm5vWO4-t3nQIUzgaYS1NAPcrmdsceRL4mMfQ5bHn4v86ZldSxmgcVoLEv8I6eCp4J9S7g5kxzg-C8hqoMrt-_qRTxfACuj3vjgvfm3Dh0VOmslccyxh5TGDa-w8EALtjUDIEbMjEvu4LI8"/>
+</div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Alex</span>
+</button>
+<!-- Add Button -->
+<button class="flex flex-col items-center gap-2 min-w-[64px] group">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:border-primary group-hover:text-primary transition-all bg-surface-light dark:bg-surface-dark group-active:scale-95">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Add</span>
+</button>
+</div>
+</div>
+<!-- Completion Goal -->
+<div>
+<h3 class="text-sm font-bold text-gray-500 dark:text-[#92c9b2] uppercase tracking-wider mb-3 ml-1">Completion Goal</h3>
+<div class="grid grid-cols-1 gap-3">
+<!-- Option 1: Simple -->
+<label class="relative flex items-center gap-4 p-4 rounded-2xl bg-surface-light dark:bg-surface-dark ring-1 ring-gray-200 dark:ring-white/5 has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:bg-primary/5 cursor-pointer transition-all shadow-sm group">
+<input checked="" class="peer sr-only" name="completion_type" type="radio"/>
+<div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-gray-900 dark:text-white">Mark as Done</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Simple checkbox completion</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-black text-[14px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+<!-- Option 2: Number -->
+<label class="relative flex items-center gap-4 p-4 rounded-2xl bg-surface-light dark:bg-surface-dark ring-1 ring-gray-200 dark:ring-white/5 has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:bg-primary/5 cursor-pointer transition-all shadow-sm group">
+<input class="peer sr-only" name="completion_type" type="radio"/>
+<div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">123</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-gray-900 dark:text-white">Track Number</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Record values like minutes, reps</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-black text-[14px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+<!-- Option 3: Text -->
+<label class="relative flex items-center gap-4 p-4 rounded-2xl bg-surface-light dark:bg-surface-dark ring-1 ring-gray-200 dark:ring-white/5 has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:bg-primary/5 cursor-pointer transition-all shadow-sm group">
+<input class="peer sr-only" name="completion_type" type="radio"/>
+<div class="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">edit_note</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-gray-900 dark:text-white">Text Note</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Require a written response</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-black text-[14px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Action Button -->
+<div class="fixed bottom-0 left-0 w-full p-4 pb-8 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pointer-events-none z-30 flex justify-center">
+<button class="pointer-events-auto w-full max-w-sm bg-primary hover:bg-[#0fd683] text-black font-extrabold text-lg py-4 rounded-2xl shadow-[0_8px_30px_rgb(19,236,146,0.2)] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_task</span>
+                Create Task
+            </button>
+</div>
+</div>
+</body></html>

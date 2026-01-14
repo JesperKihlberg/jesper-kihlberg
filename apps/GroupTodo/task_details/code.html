@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Details</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec92",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#10221a",
+                        "surface-dark": "#1c2e26",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden min-h-screen flex flex-col relative">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-black/5 dark:border-white/5 p-4 flex items-center justify-between">
+<div class="flex size-12 shrink-0 items-center justify-start cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#111418] dark:text-white text-2xl">arrow_back</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Task Details</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center bg-transparent text-[#111418] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined text-2xl">edit</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col px-4 pb-28 pt-2 space-y-6">
+<!-- Header Section -->
+<div class="space-y-3">
+<h1 class="text-[#111418] dark:text-white tracking-tight text-3xl font-extrabold leading-tight">Empty the Dishwasher</h1>
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 dark:bg-[#234839] pl-3 pr-3 border border-primary/20 dark:border-transparent">
+<span class="material-symbols-outlined text-primary text-sm font-bold">update</span>
+<p class="text-[#111418] dark:text-white text-xs font-bold uppercase tracking-wide">Repeats Daily</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-orange-500/10 dark:bg-orange-900/40 pl-3 pr-3 border border-orange-500/20 dark:border-transparent">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400 text-sm font-bold">stars</span>
+<p class="text-orange-700 dark:text-orange-200 text-xs font-bold uppercase tracking-wide">50 Points</p>
+</div>
+</div>
+</div>
+<!-- Visual Description Card -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Modern clean kitchen with white cabinets and wooden utensils" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCShx4yTH2tdd63qrBJFb8YIpjTV_WOt_x0Hs-jMf23rig_TgBgUTO0N1RomxYHGfRzo1KtSKHygwnH8ozyEosljgCj8jWo_pOJj-gfwsAKq2RTtCkKqXFgpog8WCY_etVngDzcGIi-06hCDCRo5c8AN56nf1IM9QnDGSYxCvRvEvD96jExaNLC_IfdWOo6tF3ZrKWxD5pCJrlV6m_KfBTUXQsBoHYOkqHvYUl78_hQUS5sGsQNlvCIxTa8_mVrRyn2Tm_uSRGnodE');">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-light dark:from-surface-dark via-transparent to-transparent"></div>
+</div>
+<div class="p-5 -mt-12 relative z-10">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold mb-2">Description</h3>
+<p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                    Unload clean dishes. Put silverware in the top drawer, stack plates in the cupboard, and ensure bowls are nested properly. Wipe down the door seal when finished.
+                </p>
+</div>
+</div>
+<!-- Assignees Section -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Assigned to</h3>
+<button class="text-primary text-sm font-bold hover:underline">Manage</button>
+</div>
+<div class="flex items-center gap-3 bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex -space-x-3 overflow-hidden">
+<img alt="Profile picture of Sarah" class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#1c2e26] object-cover" data-alt="Portrait of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuZrHBOZlpu1xSg8-PlDPm4aU6aESoFW93bfWUkc3mo2YRw3RG5cf411XjcLv0w3sdkdjZn3h2ezWHHTONM9tTCWqq5N9BFTFu7Ybi09qnfK_yzFCCmIItMg9K-eHeN688PPJCPE1GUyLVovclZ7YFhJiuaMuUIZAEdgzJM9GBHfC_efYcI9mKKKEfoi8MsfJ6DQ7oy_EjsOuo7Q5KTelFCCivWp17usSMbZD2XtuR0F3MQrzsaCYYRJUUalicDLtD2W8MKGiNXsU"/>
+<img alt="Profile picture of Mike" class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-[#1c2e26] object-cover" data-alt="Portrait of a man looking forward" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-Q91QxUSoNxMWQi3QBGFJHG9vfPq7l3X0cGRYPLtH3H42v6-g9IgVkn0Y9nWv-qlOrqT377-ppKMr9o0P_B__3B_ExeLmwECvZBEU6F4jkhmPCyUxS-2XHqARsPAWKeP1UVDXNStWLthtAs0zxM8kS6_eGqP-Kvq32snCzHvpyS2A6UKlwFnsDgeR0x6a3uxuDGTvHkd82J86jjaFk-660z6PT02EJbLLmvr5Fvv8HKHPVJtSF77kw-dO1vbY8Eo7l4M72qjpQI"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-[#111418] dark:text-white">Sarah &amp; You</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">Next turn: You (Today)</span>
+</div>
+</div>
+</div>
+<!-- History Timeline -->
+<div class="space-y-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Recent Activity</h3>
+<div class="relative pl-4 border-l-2 border-gray-200 dark:border-white/10 space-y-6">
+<!-- Timeline Item 1 -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-primary border-4 border-background-light dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Completed by Sarah</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Yesterday, 8:30 PM</p>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-xs font-bold">+50pts</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-gray-300 dark:bg-white/20 border-4 border-background-light dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 opacity-70">
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Completed by You</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Oct 24, 9:15 AM</p>
+</div>
+<div class="flex items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-xs font-bold">+50pts</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-gray-300 dark:bg-white/20 border-4 border-background-light dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 opacity-70">
+<div>
+<p class="text-sm font-bold text-[#111418] dark:text-white">Completed by Sarah</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Oct 23, 7:45 PM</p>
+</div>
+<div class="flex items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-xs font-bold">+50pts</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pt-8 pb-6 z-40">
+<button class="w-full cursor-pointer flex items-center justify-center overflow-hidden rounded-xl h-14 bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all text-[#11221b] text-lg font-bold shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined mr-2">check</span>
+<span>Mark Complete (+50pts)</span>
+</button>
+</div>
+</body></html>

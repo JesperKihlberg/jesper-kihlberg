@@ -1,7 +1,25 @@
 import * as React from 'react'
 import {ReactNode, useCallback, useContext, useEffect, useState} from 'react'
-import {deleteCookie, getCookie, setCookie} from "@repo/utils";
-import {ACCESS_TOKEN_KEY} from "@repo/types";
+
+// Cookie utilities
+const ACCESS_TOKEN_KEY = 'access_token';
+
+const getCookie = (name: string): string | null => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() ?? null;
+  return null;
+};
+
+const setCookie = (name: string, value: string, days = 7) => {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+};
+
+const deleteCookie = (name: string) => {
+  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+};
 
 export interface AuthContext {
   isAuthenticated: boolean

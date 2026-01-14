@@ -1,5 +1,15 @@
 {
-  "extends": "@repo/typescript-config/tsconfig.vite.json",
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "extends": "../../packages/config-typescript/react.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@jesper/ui": ["../../packages/ui/src"],
+      "@jesper/ui/*": ["../../packages/ui/src/*"],
+      "@jesper/utils": ["../../packages/utils/src"],
+      "@jesper/utils/*": ["../../packages/utils/src/*"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "../../packages/ui" }, { "path": "../../packages/utils" }]
 }

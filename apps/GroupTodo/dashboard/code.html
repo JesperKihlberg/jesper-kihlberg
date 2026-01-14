@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chore Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec92",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#10221a",
+                        "surface-dark": "#1c362b",
+                        "surface-highlight": "#234839",
+                        "text-secondary": "#92c9b2",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100dvh;padding-bottom: 160px;
+        }.segmented-control input:checked + span {
+            color: #13ec92;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display selection:bg-primary selection:text-background-dark overflow-x-hidden">
+<div class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md transition-all duration-300">
+<div class="flex items-center p-4 pt-6 pb-2 justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-sm font-medium">Monday, Oct 24</span>
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em]">Good Morning, Alex</h2>
+</div>
+<div class="flex items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-surface-dark transition-colors relative">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">notifications</span>
+<span class="absolute top-2.5 right-2.5 h-2 w-2 rounded-full bg-primary border-2 border-background-dark"></span>
+</button>
+</div>
+</div>
+<div class="px-4 pb-4">
+<div class="flex h-11 w-full items-center justify-center rounded-xl bg-surface-highlight p-1">
+<label class="group flex cursor-pointer h-full flex-1 items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-background-dark has-[:checked]:shadow-sm transition-all duration-200">
+<span class="truncate text-sm font-bold text-text-secondary group-has-[:checked]:text-primary">Today</span>
+<input checked="" class="hidden" name="view_filter" type="radio" value="Today"/>
+</label>
+<label class="group flex cursor-pointer h-full flex-1 items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-background-dark has-[:checked]:shadow-sm transition-all duration-200">
+<span class="truncate text-sm font-bold text-text-secondary group-has-[:checked]:text-primary">Weekly</span>
+<input class="hidden" name="view_filter" type="radio" value="Weekly"/>
+</label>
+<label class="group flex cursor-pointer h-full flex-1 items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-background-dark has-[:checked]:shadow-sm transition-all duration-200">
+<span class="truncate text-sm font-bold text-text-secondary group-has-[:checked]:text-primary">Monthly</span>
+<input class="hidden" name="view_filter" type="radio" value="Monthly"/>
+</label>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-8 w-full">
+<div class="px-4">
+<div class="flex flex-col gap-3 p-5 rounded-2xl bg-gradient-to-br from-surface-highlight to-background-dark border border-surface-highlight shadow-lg">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-text-secondary text-sm font-medium mb-1">Daily Goal</p>
+<p class="text-white text-3xl font-bold leading-none">4<span class="text-lg text-text-secondary font-medium">/6</span></p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">emoji_events</span>
+</div>
+</div>
+<div class="relative w-full">
+<div class="flex justify-between mb-2">
+<p class="text-white text-sm font-medium">Tasks done today</p>
+<p class="text-primary text-sm font-bold">66%</p>
+</div>
+<div class="rounded-full bg-black/20 h-2.5 overflow-hidden">
+<div class="h-full rounded-full bg-primary shadow-[0_0_10px_rgba(19,236,146,0.5)] transition-all duration-500 ease-out" style="width: 66%;"></div>
+</div>
+<p class="text-text-secondary text-xs font-normal mt-2">Almost there! Just 2 more tasks to go.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between px-4 mb-3">
+<h2 class="text-white text-xl font-bold">My Tasks</h2>
+<button class="text-primary text-sm font-bold hover:underline">See All</button>
+</div>
+<div class="px-4 flex flex-col gap-3" style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(16,34,26)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');">
+<label class="group flex items-center gap-4 p-4 rounded-xl bg-surface-dark border border-transparent hover:border-primary/30 transition-all cursor-pointer shadow-sm">
+<div class="relative flex items-center">
+<input class="peer h-6 w-6 rounded-md border-2 border-text-secondary bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer appearance-none" type="checkbox"/>
+<span class="pointer-events-none absolute inset-0 hidden peer-checked:block bg-[image:var(--checkbox-tick-svg)] bg-center bg-no-repeat bg-[length:70%]"></span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-white text-base font-medium leading-normal group-hover:text-primary transition-colors">Wash Dishes</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-orange-400 text-[14px]">schedule</span>
+<span class="text-orange-400 text-xs font-medium">Due 5:00 PM</span>
+</div>
+</div>
+</label>
+<label class="group flex items-center gap-4 p-4 rounded-xl bg-surface-dark border border-transparent hover:border-primary/30 transition-all cursor-pointer shadow-sm">
+<div class="relative flex items-center">
+<input class="peer h-6 w-6 rounded-md border-2 border-text-secondary bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer appearance-none" type="checkbox"/>
+<span class="pointer-events-none absolute inset-0 hidden peer-checked:block bg-[image:var(--checkbox-tick-svg)] bg-center bg-no-repeat bg-[length:70%]"></span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-white text-base font-medium leading-normal group-hover:text-primary transition-colors">Walk the Dog</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-text-secondary text-xs">Pet care</span>
+</div>
+</div>
+</label>
+<label class="group flex items-center gap-4 p-4 rounded-xl bg-surface-dark border border-transparent hover:border-primary/30 transition-all cursor-pointer shadow-sm">
+<div class="relative flex items-center">
+<input class="peer h-6 w-6 rounded-md border-2 border-text-secondary bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer appearance-none" type="checkbox"/>
+<span class="pointer-events-none absolute inset-0 hidden peer-checked:block bg-[image:var(--checkbox-tick-svg)] bg-center bg-no-repeat bg-[length:70%]"></span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-white text-base font-medium leading-normal group-hover:text-primary transition-colors">Fold Laundry</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-text-secondary text-xs">Housekeeping</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between px-4 mb-3">
+<h2 class="text-white text-xl font-bold">Group Tasks</h2>
+</div>
+<div class="flex gap-4 overflow-x-auto px-4 pb-2 no-scrollbar snap-x snap-mandatory">
+<div class="snap-start shrink-0 min-w-[200px] w-[220px] p-4 rounded-2xl bg-surface-highlight flex flex-col justify-between gap-4 h-32 relative overflow-hidden group border border-white/5">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="bg-blue-500/20 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Living Room</span>
+</div>
+<p class="text-white font-bold text-lg leading-tight mt-1">Clean Area</p>
+</div>
+<div class="flex items-center -space-x-2">
+<div class="h-8 w-8 rounded-full bg-slate-200 border-2 border-surface-highlight flex items-center justify-center text-background-dark text-xs font-bold" title="Dad">DA</div>
+<div class="h-8 w-8 rounded-full bg-purple-400 border-2 border-surface-highlight flex items-center justify-center text-white text-xs font-bold" title="Sister">SI</div>
+<div class="h-8 w-8 rounded-full bg-surface-dark border-2 border-surface-highlight flex items-center justify-center text-text-secondary text-xs font-bold">+2</div>
+</div>
+</div>
+<div class="snap-start shrink-0 min-w-[200px] w-[220px] p-4 rounded-2xl bg-surface-highlight flex flex-col justify-between gap-4 h-32 relative overflow-hidden group border border-white/5">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-pink-500/10 rounded-full blur-xl group-hover:bg-pink-500/20 transition-all"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="bg-pink-500/20 text-pink-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Shopping</span>
+</div>
+<p class="text-white font-bold text-lg leading-tight mt-1">Groceries</p>
+</div>
+<div class="flex items-center -space-x-2">
+<img alt="Mom Avatar" class="h-8 w-8 rounded-full border-2 border-surface-highlight object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOerJkUYbMrMEzLlHrGIrpJgfB27-muxaNzSBUVaKnliEF6D-6GcjuekJSMh_-NQ8NauVbPJbU4EeLwmGaYjq9jd-_bnwnpF_uwiuvGtbJ2e5wurP8UsGlTLI1S7uDX3VfXpHYuVm2cxQmxlmecwCUoGDyInxPM8tSWbIJdi4P_1JwYwmZUp1qTkDDBOQzXJnM4ypl1GmGS0IOM6Xnes2fhuAgcEZArVw1NxpRmFPDiPJlhCrjXJcq3SEVVIvyjeU8D6l6SMf2Ow"/>
+</div>
+</div>
+<div class="snap-start shrink-0 min-w-[200px] w-[220px] p-4 rounded-2xl bg-surface-highlight flex flex-col justify-between gap-4 h-32 relative overflow-hidden group border border-white/5">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl group-hover:bg-indigo-500/20 transition-all"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="bg-yellow-500/20 text-yellow-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Kitchen</span>
+</div>
+<p class="text-white font-bold text-lg leading-tight mt-1">Deep Clean</p>
+</div>
+<div class="flex items-center -space-x-2">
+<div class="h-8 w-8 rounded-full bg-indigo-400 border-2 border-surface-highlight flex items-center justify-center text-white text-xs font-bold">AL</div>
+<div class="h-8 w-8 rounded-full bg-emerald-400 border-2 border-surface-highlight flex items-center justify-center text-white text-xs font-bold">BR</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between px-4 mb-3">
+<h2 class="text-white text-xl font-bold">Upcoming</h2>
+</div>
+<div class="px-4">
+<div class="rounded-xl bg-surface-dark border border-white/5 p-4 flex items-center justify-between border-l-4 border-primary shadow-md">
+<div class="flex flex-col">
+<p class="text-primary text-[10px] uppercase font-bold mb-0.5 tracking-wider">Tomorrow</p>
+<p class="text-white font-semibold text-base">Take out trash</p>
+<p class="text-text-secondary text-xs">Morning collection</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
+<div class="flex justify-end px-6 pb-6 pointer-events-auto">
+<button class="h-14 w-14 rounded-full bg-primary text-background-dark shadow-[0_8px_24px_rgba(19,236,146,0.4)] flex items-center justify-center hover:scale-105 transition-transform active:scale-95 border-4 border-background-dark/30">
+<span class="material-symbols-outlined" style="font-size: 32px; font-weight: 600;">add</span>
+</button>
+</div>
+<div class="bg-background-dark/95 backdrop-blur-xl border-t border-surface-highlight/40 pt-3 pb-8 px-8 pointer-events-auto">
+<div class="flex justify-between items-center max-w-lg mx-auto">
+<button class="flex flex-col items-center gap-1.5 text-primary group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary hover:text-white transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">calendar_month</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Calendar</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary hover:text-white transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">bar_chart</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary hover:text-white transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Settings</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

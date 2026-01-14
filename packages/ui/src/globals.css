@@ -5,17 +5,19 @@
 @source "../src";
 
 @theme {
-  --color-brand-50: #EFF0FD;
-  --color-brand-100: #DEE1FB;
-  --color-brand-200: #C1C6F7;
-  --color-brand-300: #A0A9F3;
-  --color-brand-400: #828EEF;
-  --color-brand-500: #5E71E9;
-  --color-brand-600: #3857E3;
-  --color-brand-700: #2742B3;
-  --color-brand-800: #1B2F86;
-  --color-brand-900: #0D1A52;
-  --color-brand-950: #060F38;
+  --color-brand-base: hsl(111, 53%, 24%);
+  --color-brand-50: hsl(from var(--color-brand-base) h s calc(l + 52));
+  --color-brand-100: hsl(from var(--color-brand-base) h s calc(l + 42));
+  --color-brand-200: hsl(from var(--color-brand-base) h s calc(l + 32));
+  --color-brand-300: hsl(from var(--color-brand-base) h s calc(l + 22));
+  --color-brand-400: hsl(from var(--color-brand-base) h s calc(l + 12));
+  --color-brand-500: hsl(from var(--color-brand-base) h s calc(l + 2));
+  --color-brand-600: hsl(from var(--color-brand-base) h s calc(l - 8));
+  --color-brand-700: hsl(from var(--color-brand-base) h s calc(l - 18));
+  --color-brand-800: hsl(from var(--color-brand-base) h s calc(l - 28));
+  --color-brand-900: hsl(from var(--color-brand-base) h s calc(l - 38));
+
+  --ccc: var(--color-brand-200);
 
   --font-inter: "Inter", sans-serif;
 }
